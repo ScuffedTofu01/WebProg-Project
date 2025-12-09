@@ -1,3 +1,7 @@
-<footer class="bg-gray-800 text-gray-300 py-6 text-center mt-10">
-        <p>© {{ date('Y') }} Clean Energy Tips — SDG 7 Initiative</p>
+<footer class="bg-dark text-light py-4 text-center mt-5">
+    <div class="container">
+        <p class="mb-0 text-white-50">
+            © {{ date('Y') }} Clean Energy Tips — SDG 7 Initiative
+        </p>
+    </div>
 </footer>
