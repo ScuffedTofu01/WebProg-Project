@@ -133,7 +133,7 @@
                         {{-- Featured Image --}}
                         @if($tip->image)
                             <div class="rounded-4 overflow-hidden mb-5 shadow-sm">
-                                <img src="{{ asset('storage/' . $tip->image) }}" alt="{{ $tip->title }}" class="img-fluid w-100 object-fit-cover" style="transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <img src="{{ asset('images/' . $tip->image) }}" alt="{{ $tip->title }}" class="img-fluid w-100 object-fit-cover" style="transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                             </div>
                         @endif
 

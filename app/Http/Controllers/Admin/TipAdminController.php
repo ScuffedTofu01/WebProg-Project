@@ -39,7 +39,14 @@ class TipAdminController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('tips', 'public');
+            $file = $request->file('image');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+
+            // save to /images/tips (outside laravel)
+            $file->move(base_path('../images/tips'), $filename);
+
+            // add image path to validated data
+            $validated['image'] = 'tips/' . $filename;
         }
 
         Tip::create($validated);
@@ -77,7 +84,20 @@ class TipAdminController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('tips', 'public');
+
+            // delete old image if exists
+            if ($tip->image && file_exists(base_path('../images/' . $tip->image))) {
+                unlink(base_path('../images/' . $tip->image));
+            }
+
+            $file = $request->file('image');
+            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+
+            // save new image
+            $file->move(base_path('../images/tips'), $filename);
+
+            // update image path
+            $validated['image'] = 'tips/' . $filename;
         }
 
         $tip->update($validated);

@@ -183,7 +183,7 @@
                             {{-- Image Section --}}
                             <div class="card-img-wrapper">
                                 @if($tip->image)
-                                    <img src="{{ asset('storage/' . $tip->image) }}" class="card-img-top" alt="{{ $tip->title }}">
+                                    <img src="{{ asset('images/' . $tip->image) }}" class="card-img-top" alt="{{ $tip->title }}">
                                 @else
                                     {{-- Fallback Gradient --}}
                                     <div class="w-100 h-100 d-flex align-items-center justify-content-center card-img-top" style="background: linear-gradient(to bottom right, #065f46, #115e59);">
