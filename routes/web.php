@@ -30,7 +30,7 @@ Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // ADMIN CRUD
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [DashboardAdminController::class, 'index']);
 
     Route::get('/tips', [TipAdminController::class, 'index']);
