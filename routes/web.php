@@ -6,6 +6,7 @@ use App\Http\Controllers\TipController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\TipAdminController;
 use App\Http\Controllers\Admin\ResourceAdminController;
@@ -18,6 +19,15 @@ Route::get('/resources', [ResourceController::class, 'index']);
 Route::get('/feedback/{tip_id}', [FeedbackController::class, 'create']);
 Route::post('/feedback', [FeedbackController::class, 'store']);
 Route::get('/about', [AboutController::class, 'index']);
+
+// AUTH
+Route::get('/register', [AuthController::class, 'showRegister'])->middleware('guest');
+Route::post('/register', [AuthController::class, 'register'])->middleware('guest');
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
+
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // ADMIN CRUD
 Route::prefix('admin')->group(function () {
