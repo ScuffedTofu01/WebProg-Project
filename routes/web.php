@@ -6,6 +6,7 @@ use App\Http\Controllers\TipController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\TipAdminController;
 use App\Http\Controllers\Admin\ResourceAdminController;
 use App\Http\Controllers\Admin\FeedbackAdminController;
@@ -18,8 +19,9 @@ Route::get('/feedback/{tip_id}', [FeedbackController::class, 'create']);
 Route::post('/feedback', [FeedbackController::class, 'store']);
 Route::get('/about', [AboutController::class, 'index']);
 
-// TIP ADMIN CRUD
+// ADMIN CRUD
 Route::prefix('admin')->group(function () {
+    Route::get('/', [DashboardAdminController::class, 'index']);
 
     Route::get('/tips', [TipAdminController::class, 'index']);
     Route::get('/tips/create', [TipAdminController::class, 'create']);
@@ -27,10 +29,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/tips/{tip}/edit', [TipAdminController::class, 'edit']);
     Route::put('/tips/{tip}', [TipAdminController::class, 'update']);
     Route::delete('/tips/{tip}', [TipAdminController::class, 'destroy']);
-});
-
-// RESOURCES ADMIN CRUD
-Route::prefix('admin')->group(function () {
 
     Route::get('/resources', [ResourceAdminController::class, 'index']);
     Route::get('/resources/create', [ResourceAdminController::class, 'create']);
@@ -38,10 +36,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/resources/{resource}/edit', [ResourceAdminController::class, 'edit']);
     Route::put('/resources/{resource}', [ResourceAdminController::class, 'update']);
     Route::delete('/resources/{resource}', [ResourceAdminController::class, 'destroy']);
-});
-
-// FEEDBACK ADMIN CRUD
-Route::prefix('admin')->group(function () {
 
     Route::get('/feedback', [FeedbackAdminController::class, 'index']);
     Route::delete('/feedback/{feedback}', [FeedbackAdminController::class, 'destroy']);
