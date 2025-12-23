@@ -3,6 +3,12 @@
 @section('content')
 <div class="container py-5">
     
+    <div class="mb-3">
+        <a href="/admin" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-left me-1"></i> Back to Dashboard
+        </a>
+    </div>
+
     <div class="row mb-4">
         <div class="col">
             <h1 class="display-5 fw-bold text-dark mb-3">

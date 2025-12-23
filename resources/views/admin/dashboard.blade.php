@@ -88,21 +88,5 @@
         </div>
     </div>
 
-    <!-- Optional: quick links or logs -->
-    <div class="row mt-4">
-        <div class="col">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
-                    <small class="text-muted">Tip: You can manage tips, resources, and feedback using the buttons above. Pages are:</small>
-                    <ul class="mb-0 mt-2">
-                        <li><a href="/admin/tips">/admin/tips</a></li>
-                        <li><a href="/admin/resources">/admin/resources</a></li>
-                        <li><a href="/admin/feedback">/admin/feedback</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 @endsection
