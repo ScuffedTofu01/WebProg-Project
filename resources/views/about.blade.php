@@ -87,8 +87,11 @@
         color: white; border-radius: 1rem;
         transition: transform 0.5s ease;
     }
-    .stat-card-gradient:hover { transform: rotate(0deg) !important; }
 
+    .stat-card-gradient:hover { 
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
 
     .avatar-stack .avatar {
         width: 40px; height: 40px;
@@ -165,7 +168,7 @@
 
                 {{-- Decorative Statistic --}}
                 <div class="col-md-5">
-                    <div class="stat-card-gradient p-4 shadow-lg" style="transform: rotate(2deg);">
+                    <div class="stat-card-gradient p-4 shadow-lg">
                         <div class="display-4 font-serif fw-bold mb-1">733M</div>
                         <p class="text-emerald-light small fw-bold mb-4">People still live without electricity worldwide.</p>
                         
